@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>빠른 시작 · NetWiv</title><meta name="description" content="CLI 설치, 앱 생성, 실행, 게시까지. 그리고 서로 통신하는 가장 작은 C#·프론트엔드 코드."><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="alternate" hreflang="en" href="/start/"><link rel="alternate" hreflang="ko" href="/ko/start/"><script>
+      // Same storage key and rules as the Starlight docs, so the theme carries across.
+      (() => {
+        const stored = localStorage.getItem('starlight-theme');
+        const theme = stored || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+      })();
+    </script><link rel="stylesheet" href="/_astro/tokens.DY2h3nTE.css"><style>*{box-sizing:border-box}html{background:var(--bg);color:var(--fg);-webkit-text-size-adjust:100%}body{font-family:var(--nw-sans);font-variant-numeric:tabular-nums;margin:0;font-size:17px;line-height:1.55}pre,code,kbd{font-variant-ligatures:none;font-feature-settings:"calt" 0}::selection{background:var(--nw-lavender);color:var(--nw-ink)}a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}a:hover{color:var(--accent)}:focus-visible{outline:2px solid var(--accent);outline-offset:3px}:lang(ko){word-break:keep-all;overflow-wrap:anywhere}.wrap{--pad:clamp(20px, 4.5vw, 64px);padding-inline:var(--pad);grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;display:grid}.skip{position:absolute;left:-999px}.skip:focus{background:var(--nw-ink);color:var(--nw-white);z-index:1;padding:8px 12px;top:16px;left:16px}.mark{flex:none;width:32px;height:32px;display:inline-block}.mark svg{width:100%;height:100%;display:block}.mark>span{display:contents}.mk-dark,:root[data-theme=dark] .mk-light{display:none!important}:root[data-theme=dark] .mk-dark{display:contents!important}.mark.small{width:20px;height:20px}.top{border-bottom:2px solid var(--rule);align-items:center;padding-block:22px}.brand{grid-column:1/5;align-items:center;gap:12px;text-decoration:none;display:inline-flex}.word{font-family:var(--nw-mono);letter-spacing:-.03em;font-size:22px;font-weight:800}.top nav{flex-wrap:wrap;grid-column:5/13;justify-content:flex-end;align-items:center;gap:8px 28px;font-size:15px;display:flex}.top nav a{text-decoration:none}.top nav a:hover,.top nav a[aria-current=page]{text-decoration:underline 2px}.top .lang{font-family:var(--nw-mono);font-size:14px}.top .icon-link{align-items:center;display:inline-flex}.top .icon-link svg{width:20px;height:20px}.sr{clip-path:inset(50%);white-space:nowrap;width:1px;height:1px;position:absolute;overflow:hidden}.theme{color:var(--fg);align-items:center;gap:6px;display:inline-flex}.theme svg{flex:none;width:16px;height:16px}.theme select{appearance:none;color:inherit;font:inherit;cursor:pointer;background:0 0;border:0;padding:2px 4px;font-size:14px}.theme select:hover{color:var(--accent)}.theme option{background:var(--bg);color:var(--fg)}.band{border-top:2px solid var(--rule);padding-block:72px 80px}.head{grid-column:1/4}.head h2{letter-spacing:-.02em;align-items:center;gap:12px;margin:0;font-size:26px;font-weight:700;line-height:1.2;display:flex}.viz{grid-column:4/13;min-width:0}.button{background:var(--btn);color:var(--on-btn);padding:15px 22px;font-size:16px;font-weight:500;text-decoration:none;transition:background-color .16s cubic-bezier(.16,1,.3,1);display:inline-block}.button:hover{background:var(--btn-hover);color:var(--on-btn)}.foot{color:var(--muted);row-gap:12px;padding-block:40px 56px;font-size:14px}.foot-brand{color:var(--fg);font-family:var(--nw-mono);grid-column:1/5;align-items:center;gap:10px;display:flex}.foot nav{flex-wrap:wrap;grid-column:5/13;justify-content:flex-end;gap:8px 24px;display:flex}.foot p{grid-column:1/10;max-width:90ch;margin:0}.foot p:first-of-type{margin-top:16px}@media (width<=960px){.brand{grid-column:1/13}.top nav{grid-column:1/13;justify-content:flex-start;gap:6px 20px;margin-top:14px}.head,.viz{grid-column:1/13}.head{margin-bottom:28px}.foot-brand,.foot nav,.foot p{grid-column:1/13;justify-content:flex-start}}@media (width<=560px){.band{padding-block:48px 56px}}
+</style><link rel="stylesheet" href="/_astro/Start.BQeTEk20.css"><script type="module" src="/_astro/page.cNngjUgL.js"></script></head><body><a class="skip" href="#main">본문으로 건너뛰기</a><header class="top wrap"><a class="brand" href="/ko/" aria-label="NetWiv"><span class="mark" aria-hidden="true"><span class="mk-light"><svg xmlns="http://www.w3.org/2000/svg" viewBox="76 76 360 360" role="img" aria-label="NetWiv">
+  <rect x="160" y="88" width="264" height="264" rx="48" fill="#B9A8F5"/>
+  <rect x="76" y="148" width="288" height="288" rx="60" fill="#F6F5FB"/>
+  <rect x="88" y="160" width="264" height="264" rx="48" fill="#512BD4"/>
+  <rect x="152" y="224" width="40" height="136" fill="#FFFFFF"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="none" stroke="#512BD4" stroke-width="14" stroke-linejoin="round"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="#B9A8F5"/>
+  <rect x="241" y="217" width="54" height="150" fill="#512BD4"/>
+  <rect x="248" y="224" width="40" height="136" fill="#FFFFFF"/>
+</svg>
+</span><span class="mk-dark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="76 76 360 360" role="img" aria-label="NetWiv">
+  <rect x="160" y="88" width="264" height="264" rx="48" fill="#512BD4"/>
+  <rect x="76" y="148" width="288" height="288" rx="60" fill="#17142A"/>
+  <rect x="88" y="160" width="264" height="264" rx="48" fill="#FFFFFF"/>
+  <rect x="152" y="224" width="40" height="136" fill="#512BD4"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linejoin="round"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="#B9A8F5"/>
+  <rect x="241" y="217" width="54" height="150" fill="#FFFFFF"/>
+  <rect x="248" y="224" width="40" height="136" fill="#512BD4"/>
+</svg>
+</span></span><span class="word">NetWiv</span></a><nav aria-label="주 메뉴"><a href="/ko/start/" aria-current="page">빠른 시작</a><a href="/ko/guides/integration-quickstart/">문서</a><a href="/ko/api/">API 레퍼런스</a><a href="/ko/compatibility/">호환성</a><a href="/ko/guides/implementation-status/">지원 현황</a><a class="lang" href="/start/" hreflang="en">English</a><label class="theme"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-theme-icon><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg><span class="sr">테마</span><select data-theme-select><option value="auto">자동</option><option value="light">라이트</option><option value="dark">다크</option></select></label><a class="icon-link" href="https://github.com/kim0522ms/NetWiv"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg><span class="sr">GitHub</span></a></nav></header><main id="main"><div data-start data-shell="pwsh" class="astro-hjwq3ci7"><section class="hero wrap astro-hjwq3ci7"><div class="intro astro-hjwq3ci7"><h1 class="astro-hjwq3ci7">빠른 시작</h1><p class="lede astro-hjwq3ci7">CLI를 설치하고, 앱을 만들고, 실행하고, 게시합니다. 이어서 서로 통신하는 가장 작은 C#과 프론트엔드 코드를 봅니다.</p><p class="fine astro-hjwq3ci7">NetWiv는 아직 NuGet.org에 없습니다. GitHub 릴리스 페이지의 ZIP에 패키지가 들어 있고, 압축을 푼 폴더를 패키지 소스로 씁니다.</p><div class="seg astro-hjwq3ci7" role="radiogroup" aria-label="셸"><button type="button" role="radio" data-shell-option="pwsh" aria-checked="true" tabindex="0" class="astro-hjwq3ci7">PowerShell</button><button type="button" role="radio" data-shell-option="zsh" aria-checked="false" tabindex="-1" class="astro-hjwq3ci7">zsh</button></div></div><div class="needs astro-hjwq3ci7"><p class="needs-h astro-hjwq3ci7">필요한 것</p><ul class="astro-hjwq3ci7"><li class="astro-hjwq3ci7">.NET 8 이상 SDK</li><li class="astro-hjwq3ci7">Node.js ^20.19 또는 22.12 이상</li><li class="astro-hjwq3ci7">운영체제 WebView: WebView2, WebKitGTK 4.1, WKWebView</li></ul></div></section><section class="band wrap steps astro-hjwq3ci7" aria-label="빠른 시작"><ol class="astro-hjwq3ci7"><li class="astro-hjwq3ci7"><span class="num astro-hjwq3ci7" aria-hidden="true">1</span><div class="text astro-hjwq3ci7"><h2 class="astro-hjwq3ci7">패키지 받기</h2><p class="astro-hjwq3ci7">릴리스 페이지에서 ZIP을 받아 압축을 풉니다. 아래 명령은 다운로드 폴더에 풀었다고 가정하니, 다른 곳이면 경로만 바꾸세요. 새 프로젝트가 이 폴더를 가리키므로 지우지 마세요.</p></div><div class="get astro-hjwq3ci7"><a class="button astro-hjwq3ci7" href="https://github.com/kim0522ms/NetWiv/releases/tag/v0.2.2">NetWiv-0.2.2-packages.zip 받기</a><p class="get-note astro-hjwq3ci7">릴리스에는 ZIP을 검증할 SHA256SUMS도 있습니다.</p></div></li><li class="astro-hjwq3ci7"><span class="num astro-hjwq3ci7" aria-hidden="true">2</span><div class="text astro-hjwq3ci7"><h2 class="astro-hjwq3ci7">CLI 설치</h2><p class="astro-hjwq3ci7">압축을 푼 폴더에서 실행합니다. <code>$feed</code>에 패키지 위치가 저장됩니다. 이미 설치했다면 <code>install</code> 대신 <code>update</code>를 씁니다.</p></div><div class="plate astro-hjwq3ci7"><div class="shell astro-hjwq3ci7" data-for="pwsh"><button type="button" class="copy astro-hjwq3ci7" data-copy="Set-Location $HOME\Downloads\NetWiv-0.2.2-packages
+$feed = (Resolve-Path .\packages).Path
+dotnet tool install --global NetWiv.Cli --version 0.2.2 --add-source $feed">복사</button><pre class="astro-hjwq3ci7"><code class="astro-hjwq3ci7">Set-Location $HOME\Downloads\NetWiv-0.2.2-packages
+$feed = (Resolve-Path .\packages).Path
+dotnet tool install --global NetWiv.Cli --version 0.2.2 --add-source $feed</code></pre></div><div class="shell astro-hjwq3ci7" data-for="zsh"><button type="button" class="copy astro-hjwq3ci7" data-copy="cd ~/Downloads/NetWiv-0.2.2-packages
+feed=&quot;$(pwd)/packages&quot;
+dotnet tool install --global NetWiv.Cli --version 0.2.2 --add-source &quot;$feed&quot;
+export PATH=&quot;$HOME/.dotnet/tools:$PATH&quot;">복사</button><pre class="astro-hjwq3ci7"><code class="astro-hjwq3ci7">cd ~/Downloads/NetWiv-0.2.2-packages
+feed=&quot;$(pwd)/packages&quot;
+dotnet tool install --global NetWiv.Cli --version 0.2.2 --add-source &quot;$feed&quot;
+export PATH=&quot;$HOME/.dotnet/tools:$PATH&quot;</code></pre></div></div></li><li class="astro-hjwq3ci7"><span class="num astro-hjwq3ci7" aria-hidden="true">3</span><div class="text astro-hjwq3ci7"><h2 class="astro-hjwq3ci7">앱 만들기</h2><p class="astro-hjwq3ci7"><code>$feed</code>가 남아 있도록 같은 터미널에서 실행합니다. 기본은 React이고, <code>netwiv new --list</code>로 18개 템플릿을 볼 수 있습니다.</p></div><div class="plate astro-hjwq3ci7"><div class="shell astro-hjwq3ci7" data-for="pwsh"><button type="button" class="copy astro-hjwq3ci7" data-copy="Set-Location $HOME    # 프로젝트를 둘 폴더면 어디든
+netwiv new MyNetWivApp --template react --source $feed
+Set-Location MyNetWivApp">복사</button><pre class="astro-hjwq3ci7"><code class="astro-hjwq3ci7">Set-Location $HOME    # 프로젝트를 둘 폴더면 어디든
+netwiv new MyNetWivApp --template react --source $feed
+Set-Location MyNetWivApp</code></pre></div><div class="shell astro-hjwq3ci7" data-for="zsh"><button type="button" class="copy astro-hjwq3ci7" data-copy="cd ~    # 프로젝트를 둘 폴더면 어디든
+netwiv new MyNetWivApp --template react --source &quot;$feed&quot;
+cd MyNetWivApp">복사</button><pre class="astro-hjwq3ci7"><code class="astro-hjwq3ci7">cd ~    # 프로젝트를 둘 폴더면 어디든
+netwiv new MyNetWivApp --template react --source &quot;$feed&quot;
+cd MyNetWivApp</code></pre></div></div></li><li class="astro-hjwq3ci7"><span class="num astro-hjwq3ci7" aria-hidden="true">4</span><div class="text astro-hjwq3ci7"><h2 class="astro-hjwq3ci7">실행</h2><p class="astro-hjwq3ci7">바인딩을 만들고 Vite를 띄운 뒤 창을 엽니다. C#을 고치면 백엔드가 다시 시작됩니다.</p></div><div class="plate astro-hjwq3ci7"><div class="shell astro-hjwq3ci7" data-for="pwsh"><button type="button" class="copy astro-hjwq3ci7" data-copy="npm ci
+npm run desktop:dev">복사</button><pre class="astro-hjwq3ci7"><code class="astro-hjwq3ci7">npm ci
+npm run desktop:dev</code></pre></div><div class="shell astro-hjwq3ci7" data-for="zsh"><button type="button" class="copy astro-hjwq3ci7" data-copy="npm ci
+npm run desktop:dev">복사</button><pre class="astro-hjwq3ci7"><code class="astro-hjwq3ci7">npm ci
+npm run desktop:dev</code></pre></div></div></li><li class="astro-hjwq3ci7"><span class="num astro-hjwq3ci7" aria-hidden="true">5</span><div class="text astro-hjwq3ci7"><h2 class="astro-hjwq3ci7">게시</h2><p class="astro-hjwq3ci7">기본은 self-contained .NET이고, <code>--aot</code>를 붙이면 NativeAOT입니다. 결과는 <code>target/</code>에 생깁니다.</p></div><div class="plate astro-hjwq3ci7"><div class="shell astro-hjwq3ci7" data-for="pwsh"><button type="button" class="copy astro-hjwq3ci7" data-copy="dotnet tool run netwiv -- build
+dotnet tool run netwiv -- build --aot">복사</button><pre class="astro-hjwq3ci7"><code class="astro-hjwq3ci7">dotnet tool run netwiv -- build
+dotnet tool run netwiv -- build --aot</code></pre></div><div class="shell astro-hjwq3ci7" data-for="zsh"><button type="button" class="copy astro-hjwq3ci7" data-copy="dotnet tool run netwiv -- build
+dotnet tool run netwiv -- build --aot">복사</button><pre class="astro-hjwq3ci7"><code class="astro-hjwq3ci7">dotnet tool run netwiv -- build
+dotnet tool run netwiv -- build --aot</code></pre></div></div></li></ol></section><section class="band wrap astro-hjwq3ci7" aria-labelledby="app"><div class="head astro-hjwq3ci7"><h2 id="app" class="astro-hjwq3ci7"><span class="mark small" aria-hidden="true"><span class="mk-light"><svg xmlns="http://www.w3.org/2000/svg" viewBox="76 76 360 360" role="img" aria-label="NetWiv">
+  <rect x="160" y="88" width="264" height="264" rx="48" fill="#B9A8F5"/>
+  <rect x="76" y="148" width="288" height="288" rx="60" fill="#F6F5FB"/>
+  <rect x="88" y="160" width="264" height="264" rx="48" fill="#512BD4"/>
+  <rect x="152" y="224" width="40" height="136" fill="#FFFFFF"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="none" stroke="#512BD4" stroke-width="14" stroke-linejoin="round"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="#B9A8F5"/>
+  <rect x="241" y="217" width="54" height="150" fill="#512BD4"/>
+  <rect x="248" y="224" width="40" height="136" fill="#FFFFFF"/>
+</svg>
+</span><span class="mk-dark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="76 76 360 360" role="img" aria-label="NetWiv">
+  <rect x="160" y="88" width="264" height="264" rx="48" fill="#512BD4"/>
+  <rect x="76" y="148" width="288" height="288" rx="60" fill="#17142A"/>
+  <rect x="88" y="160" width="264" height="264" rx="48" fill="#FFFFFF"/>
+  <rect x="152" y="224" width="40" height="136" fill="#512BD4"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linejoin="round"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="#B9A8F5"/>
+  <rect x="241" y="217" width="54" height="150" fill="#FFFFFF"/>
+  <rect x="248" y="224" width="40" height="136" fill="#512BD4"/>
+</svg>
+</span></span>가장 작은 앱</h2><p class="side astro-hjwq3ci7">React 템플릿에서 줄였습니다. 실제 템플릿은 개발 서버 연결도 함께 합니다.</p><p class="side astro-hjwq3ci7">강조된 줄에 마우스를 올리면 짝이 되는 줄이 함께 표시됩니다.</p></div><div class="viz pair astro-hjwq3ci7" data-keyed><figure class="code cs astro-hjwq3ci7"><figcaption class="astro-hjwq3ci7">src-netwiv/Program.cs</figcaption><pre class="astro-hjwq3ci7"><code class="astro-hjwq3ci7"><span class="ln astro-hjwq3ci7"><span class="kw">using</span> System.Text.Json.Serialization;</span><span class="ln astro-hjwq3ci7"><span class="kw">using</span> NetWiv;</span><span class="ln astro-hjwq3ci7"><span class="kw">using</span> NetWiv.Platform.Desktop;</span><span class="ln astro-hjwq3ci7"> </span><span class="ln astro-hjwq3ci7">[assembly: CommandJsonContext(typeof(AppJsonContext))]</span><span class="ln astro-hjwq3ci7" data-key="k1" tabindex="0">[assembly: GenerateFrontendBindings]</span><span class="ln astro-hjwq3ci7"> </span><span class="ln astro-hjwq3ci7"><span class="kw">internal</span> <span class="kw">static</span> <span class="kw">class</span> Program</span><span class="ln astro-hjwq3ci7">{</span><span class="ln astro-hjwq3ci7">    [STAThread]</span><span class="ln astro-hjwq3ci7">    <span class="kw">private</span> <span class="kw">static</span> <span class="kw">void</span> Main()</span><span class="ln astro-hjwq3ci7">    {</span><span class="ln astro-hjwq3ci7">        <span class="kw">using</span> <span class="kw">var</span> app = <span class="kw">new</span> Builder()</span><span class="ln astro-hjwq3ci7">            .UseRuntime(<span class="kw">new</span> DesktopRuntime())</span><span class="ln astro-hjwq3ci7">            .Metadata(<span class="kw">new</span> AppMetadata("My app", "0.1.0", "dev.example.myapp"))</span><span class="ln astro-hjwq3ci7">            .UseEmbeddedAssets()</span><span class="ln astro-hjwq3ci7">            .UseEmbeddedConfig(EmbeddedConfigMode.Production)</span><span class="ln astro-hjwq3ci7" data-key="k2" tabindex="0">            .InvokeHandler("greet")</span><span class="ln astro-hjwq3ci7">            .Window("main", "My app", "index.html", 900, 680)</span><span class="ln astro-hjwq3ci7">            .Build();</span><span class="ln astro-hjwq3ci7">        app.Run();</span><span class="ln astro-hjwq3ci7">    }</span><span class="ln astro-hjwq3ci7">}</span><span class="ln astro-hjwq3ci7"> </span><span class="ln astro-hjwq3ci7"><span class="kw">public</span> <span class="kw">static</span> <span class="kw">class</span> Commands</span><span class="ln astro-hjwq3ci7">{</span><span class="ln astro-hjwq3ci7" data-key="k2" tabindex="0">    [Command]</span><span class="ln astro-hjwq3ci7" data-key="k2" tabindex="0">    <span class="kw">public</span> <span class="kw">static</span> <span class="kw">string</span> Greet(<span class="kw">string</span> name) =&gt; $"Hello, {name}!";</span><span class="ln astro-hjwq3ci7">}</span><span class="ln astro-hjwq3ci7"> </span><span class="ln astro-hjwq3ci7">[JsonSerializable(typeof(<span class="kw">string</span>))]</span><span class="ln astro-hjwq3ci7"><span class="kw">public</span> <span class="kw">partial</span> <span class="kw">class</span> AppJsonContext : JsonSerializerContext;</span></code></pre></figure><figure class="code ts astro-hjwq3ci7"><figcaption class="astro-hjwq3ci7">src/main.js</figcaption><pre class="astro-hjwq3ci7"><code class="astro-hjwq3ci7"><span class="ln astro-hjwq3ci7"><span class="kw">import</span> { isNetWiv } <span class="kw">from</span> '@netwiv/api/core';</span><span class="ln astro-hjwq3ci7" data-key="k1" tabindex="0"><span class="kw">import</span> { commands } <span class="kw">from</span> './generated/commands.js';</span><span class="ln astro-hjwq3ci7"> </span><span class="ln astro-hjwq3ci7"><span class="kw">if</span> (isNetWiv()) {</span><span class="ln astro-hjwq3ci7" data-key="k2" tabindex="0">  <span class="kw">const</span> message = <span class="kw">await</span> commands.greet({ name: 'World' });</span><span class="ln astro-hjwq3ci7">  document.body.textContent = message;</span><span class="ln astro-hjwq3ci7">}</span></code></pre></figure></div></section><section class="band wrap astro-hjwq3ci7" aria-labelledby="cli"><div class="head astro-hjwq3ci7"><h2 id="cli" class="astro-hjwq3ci7"><span class="mark small" aria-hidden="true"><span class="mk-light"><svg xmlns="http://www.w3.org/2000/svg" viewBox="76 76 360 360" role="img" aria-label="NetWiv">
+  <rect x="160" y="88" width="264" height="264" rx="48" fill="#B9A8F5"/>
+  <rect x="76" y="148" width="288" height="288" rx="60" fill="#F6F5FB"/>
+  <rect x="88" y="160" width="264" height="264" rx="48" fill="#512BD4"/>
+  <rect x="152" y="224" width="40" height="136" fill="#FFFFFF"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="none" stroke="#512BD4" stroke-width="14" stroke-linejoin="round"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="#B9A8F5"/>
+  <rect x="241" y="217" width="54" height="150" fill="#512BD4"/>
+  <rect x="248" y="224" width="40" height="136" fill="#FFFFFF"/>
+</svg>
+</span><span class="mk-dark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="76 76 360 360" role="img" aria-label="NetWiv">
+  <rect x="160" y="88" width="264" height="264" rx="48" fill="#512BD4"/>
+  <rect x="76" y="148" width="288" height="288" rx="60" fill="#17142A"/>
+  <rect x="88" y="160" width="264" height="264" rx="48" fill="#FFFFFF"/>
+  <rect x="152" y="224" width="40" height="136" fill="#512BD4"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linejoin="round"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="#B9A8F5"/>
+  <rect x="241" y="217" width="54" height="150" fill="#FFFFFF"/>
+  <rect x="248" y="224" width="40" height="136" fill="#512BD4"/>
+</svg>
+</span></span>CLI 한눈에</h2></div><div class="viz astro-hjwq3ci7"><table class="cli astro-hjwq3ci7"><thead class="astro-hjwq3ci7"><tr class="astro-hjwq3ci7"><th scope="col" class="astro-hjwq3ci7">명령</th><th scope="col" class="astro-hjwq3ci7">하는 일</th></tr></thead><tbody class="astro-hjwq3ci7"><tr class="astro-hjwq3ci7"><th scope="row" class="astro-hjwq3ci7"><code class="astro-hjwq3ci7">netwiv new NAME -t TEMPLATE</code></th><td class="astro-hjwq3ci7">SDK 참조, 로컬 CLI, 피드를 갖춘 프로젝트 생성</td></tr><tr class="astro-hjwq3ci7"><th scope="row" class="astro-hjwq3ci7"><code class="astro-hjwq3ci7">netwiv new --list</code></th><td class="astro-hjwq3ci7">프론트엔드 템플릿 18개 보기</td></tr><tr class="astro-hjwq3ci7"><th scope="row" class="astro-hjwq3ci7"><code class="astro-hjwq3ci7">netwiv dev</code></th><td class="astro-hjwq3ci7">바인딩, 개발 서버, 백엔드 재시작과 함께 실행</td></tr><tr class="astro-hjwq3ci7"><th scope="row" class="astro-hjwq3ci7"><code class="astro-hjwq3ci7">netwiv build</code></th><td class="astro-hjwq3ci7">self-contained .NET으로 게시. 설정에서 켜면 번들도 생성</td></tr><tr class="astro-hjwq3ci7"><th scope="row" class="astro-hjwq3ci7"><code class="astro-hjwq3ci7">netwiv build --aot</code></th><td class="astro-hjwq3ci7">NativeAOT로 게시</td></tr><tr class="astro-hjwq3ci7"><th scope="row" class="astro-hjwq3ci7"><code class="astro-hjwq3ci7">netwiv build --framework-dependent</code></th><td class="astro-hjwq3ci7">설치된 .NET 런타임용으로 게시</td></tr><tr class="astro-hjwq3ci7"><th scope="row" class="astro-hjwq3ci7"><code class="astro-hjwq3ci7">netwiv build -t osx-arm64 -b app,dmg</code></th><td class="astro-hjwq3ci7">대상과 번들 형식 지정</td></tr><tr class="astro-hjwq3ci7"><th scope="row" class="astro-hjwq3ci7"><code class="astro-hjwq3ci7">netwiv info</code></th><td class="astro-hjwq3ci7">CLI·.NET SDK 버전, OS, 설정 보기</td></tr></tbody></table></div></section><section class="band wrap astro-hjwq3ci7" aria-labelledby="next"><div class="head astro-hjwq3ci7"><h2 id="next" class="astro-hjwq3ci7"><span class="mark small" aria-hidden="true"><span class="mk-light"><svg xmlns="http://www.w3.org/2000/svg" viewBox="76 76 360 360" role="img" aria-label="NetWiv">
+  <rect x="160" y="88" width="264" height="264" rx="48" fill="#B9A8F5"/>
+  <rect x="76" y="148" width="288" height="288" rx="60" fill="#F6F5FB"/>
+  <rect x="88" y="160" width="264" height="264" rx="48" fill="#512BD4"/>
+  <rect x="152" y="224" width="40" height="136" fill="#FFFFFF"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="none" stroke="#512BD4" stroke-width="14" stroke-linejoin="round"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="#B9A8F5"/>
+  <rect x="241" y="217" width="54" height="150" fill="#512BD4"/>
+  <rect x="248" y="224" width="40" height="136" fill="#FFFFFF"/>
+</svg>
+</span><span class="mk-dark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="76 76 360 360" role="img" aria-label="NetWiv">
+  <rect x="160" y="88" width="264" height="264" rx="48" fill="#512BD4"/>
+  <rect x="76" y="148" width="288" height="288" rx="60" fill="#17142A"/>
+  <rect x="88" y="160" width="264" height="264" rx="48" fill="#FFFFFF"/>
+  <rect x="152" y="224" width="40" height="136" fill="#512BD4"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linejoin="round"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="#B9A8F5"/>
+  <rect x="241" y="217" width="54" height="150" fill="#FFFFFF"/>
+  <rect x="248" y="224" width="40" height="136" fill="#512BD4"/>
+</svg>
+</span></span>다음</h2></div><ul class="viz next astro-hjwq3ci7"><li class="astro-hjwq3ci7"><a href="/ko/guides/integration-quickstart/" class="astro-hjwq3ci7">전체 빠른 시작 가이드</a></li><li class="astro-hjwq3ci7"><a href="/ko/guides/template-coverage/" class="astro-hjwq3ci7">템플릿</a></li><li class="astro-hjwq3ci7"><a href="/ko/guides/frontend-api/" class="astro-hjwq3ci7">프론트엔드 SDK</a></li><li class="astro-hjwq3ci7"><a href="/ko/frontend/" class="astro-hjwq3ci7">프론트엔드 API 레퍼런스</a></li><li class="astro-hjwq3ci7"><a href="/ko/guides/deployment/" class="astro-hjwq3ci7">배포 방식</a></li><li class="astro-hjwq3ci7"><a href="/ko/guides/csharp-api/" class="astro-hjwq3ci7">C# SDK</a></li></ul></section></div></main><footer class="foot wrap"><div class="foot-brand"><span class="mark small" aria-hidden="true"><span class="mk-light"><svg xmlns="http://www.w3.org/2000/svg" viewBox="76 76 360 360" role="img" aria-label="NetWiv">
+  <rect x="160" y="88" width="264" height="264" rx="48" fill="#B9A8F5"/>
+  <rect x="76" y="148" width="288" height="288" rx="60" fill="#F6F5FB"/>
+  <rect x="88" y="160" width="264" height="264" rx="48" fill="#512BD4"/>
+  <rect x="152" y="224" width="40" height="136" fill="#FFFFFF"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="none" stroke="#512BD4" stroke-width="14" stroke-linejoin="round"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="#B9A8F5"/>
+  <rect x="241" y="217" width="54" height="150" fill="#512BD4"/>
+  <rect x="248" y="224" width="40" height="136" fill="#FFFFFF"/>
+</svg>
+</span><span class="mk-dark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="76 76 360 360" role="img" aria-label="NetWiv">
+  <rect x="160" y="88" width="264" height="264" rx="48" fill="#512BD4"/>
+  <rect x="76" y="148" width="288" height="288" rx="60" fill="#17142A"/>
+  <rect x="88" y="160" width="264" height="264" rx="48" fill="#FFFFFF"/>
+  <rect x="152" y="224" width="40" height="136" fill="#512BD4"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linejoin="round"/>
+  <polygon points="152,224 192,224 288,360 248,360" fill="#B9A8F5"/>
+  <rect x="241" y="217" width="54" height="150" fill="#FFFFFF"/>
+  <rect x="248" y="224" width="40" height="136" fill="#512BD4"/>
+</svg>
+</span></span><span>NetWiv · Apache-2.0</span></div><nav aria-label="바닥글"><a href="/ko/guides/integration-quickstart/">문서</a><a href="/ko/api/">API 레퍼런스</a><a href="/ko/compatibility/">호환성</a><a href="https://github.com/kim0522ms/NetWiv">GitHub</a><a href="https://github.com/kim0522ms/NetWiv/issues">이슈</a></nav><p>AI 코딩 에이전트와 함께 개발합니다.</p></footer><script>(function(){const themeIcons = {"auto":"\u003cpath d=\"M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z\"/>","light":"\u003cpath d=\"M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z\"/>","dark":"\u003cpath d=\"M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z\"/>"};
+
+      // Theme picker: auto follows the OS; the choice is shared with the docs.
+      const key = 'starlight-theme';
+      const select = document.querySelector('[data-theme-select]');
+      const icon = document.querySelector('[data-theme-icon]');
+      const system = () => (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      const apply = (choice) => {
+        document.documentElement.dataset.theme = choice === 'auto' ? system() : choice;
+        if (select) select.value = choice;
+        if (icon) icon.innerHTML = themeIcons[choice];
+      };
+      const stored = localStorage.getItem(key);
+      apply(stored === 'light' || stored === 'dark' ? stored : 'auto');
+      select?.addEventListener('change', () => {
+        const choice = select.value;
+        localStorage.setItem(key, choice === 'auto' ? '' : choice);
+        apply(choice);
+      });
+      matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {
+        if (!localStorage.getItem(key)) apply('auto');
+      });
+    })();</script></body></html><script type="module">for(let e of document.querySelectorAll(`[data-start]`)){let t=[...e.querySelectorAll(`[data-shell-option]`)],n=(n,r=!1)=>{e.dataset.shell=n,t.forEach(e=>{let t=e.dataset.shellOption===n;e.setAttribute(`aria-checked`,String(t)),e.tabIndex=t?0:-1,t&&r&&e.focus()});try{localStorage.setItem(`netwiv-shell`,n)}catch{}},r=null;try{r=localStorage.getItem(`netwiv-shell`)}catch{}n(r===`pwsh`||r===`zsh`?r:/Win/.test(navigator.platform)?`pwsh`:`zsh`),t.forEach((e,r)=>{e.addEventListener(`click`,()=>n(e.dataset.shellOption)),e.addEventListener(`keydown`,e=>{let i={ArrowRight:1,ArrowLeft:-1,ArrowDown:1,ArrowUp:-1}[e.key];i!==void 0&&(e.preventDefault(),n(t[(r+i+t.length)%t.length].dataset.shellOption,!0))})});for(let t of e.querySelectorAll(`[data-copy]`)){let e=t.textContent;t.addEventListener(`click`,async()=>{try{await navigator.clipboard.writeText(t.dataset.copy??``),t.textContent=document.documentElement.lang===`ko`?`복사함`:`Copied`}catch{t.textContent=document.documentElement.lang===`ko`?`복사 실패`:`Copy failed`}setTimeout(()=>t.textContent=e,1600)})}let i=e.querySelector(`[data-keyed]`),a=i?[...i.querySelectorAll(`.ln[data-key]`)]:[],o=e=>a.forEach(t=>t.classList.toggle(`lit`,e!==null&&t.dataset.key===e));for(let e of a)e.addEventListener(`pointerenter`,()=>o(e.dataset.key??null)),e.addEventListener(`focus`,()=>o(e.dataset.key??null)),e.addEventListener(`pointerleave`,()=>o(null)),e.addEventListener(`blur`,()=>o(null))}</script>

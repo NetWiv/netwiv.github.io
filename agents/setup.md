@@ -126,16 +126,15 @@ Then register the server for the agent you are, unless it is already registered:
 - **Other agents**: command `dotnet`, arguments `tool run netwiv -- mcp`,
   stdio transport, started from the project folder.
 
-## 6. Claude Code: install the NetWiv skills
+## 6. Claude Code or Codex: install the NetWiv skills
 
-Skip this step unless you are Claude Code. Check `claude plugin list` first;
-if `netwiv@netwiv` is already installed and enabled, go on.
+Skip this step unless you are Claude Code or Codex. The NetWiv skills from
+[NetWiv/skills](https://github.com/NetWiv/skills) hold NetWiv workflows that do
+not change between releases and read version-specific details from the MCP
+server above, so one install covers every NetWiv version.
 
-Otherwise offer the NetWiv skills from
-[NetWiv/skills](https://github.com/NetWiv/skills). They hold NetWiv workflows
-that do not change between releases and read version-specific details from the
-MCP server above, so one install covers every NetWiv version. Ask the user two
-things together:
+**Claude Code.** Check `claude plugin list` first; if `netwiv@netwiv` is
+installed and enabled, go on. Otherwise ask the user two things together:
 
 1. Install the skills? If they decline, go on.
 2. Where? Explain the choice:
@@ -147,20 +146,31 @@ things together:
 
    Without a project yet, only user scope applies.
 
-Then run, from the project folder for project scope:
+Then run, from the project folder for project scope, with the same scope for
+both commands:
 
 ```sh
 claude plugin marketplace add NetWiv/skills --scope <user|project>
 claude plugin install netwiv@netwiv --scope <user|project>
 ```
 
-Use the same scope for both commands. Report what was written where.
+**Codex.** Check `codex plugin list` first; if `netwiv@netwiv` is installed
+and enabled, go on. Otherwise ask whether to install the skills, and say that
+Codex installs plugins for all of the user's projects; it has no per-project
+scope. If they agree:
+
+```sh
+codex plugin marketplace add NetWiv/skills
+codex plugin add netwiv@netwiv
+```
+
+Report what was installed and where it was recorded.
 
 ## 7. Restart and verify
 
 Most agents load new MCP servers and plugins only at startup. If yours does,
 tell the user to restart it in the project folder and to approve the `netwiv`
-server when asked; the restart also loads the skills from step 6.
+server when asked; the restart also loads any skills installed in step 6.
 
 Then call `netwiv_project_info`. Report the CLI version, the project's NetWiv
 package version and whether they differ. Call `netwiv_docs_read` without

@@ -126,33 +126,47 @@ Then register the server for the agent you are, unless it is already registered:
 - **Other agents**: command `dotnet`, arguments `tool run netwiv -- mcp`,
   stdio transport, started from the project folder.
 
-Most agents load new MCP servers only at startup. If yours does, tell the user
-to restart it in the project folder and to approve the `netwiv` server when asked.
+## 6. Claude Code: install the NetWiv skills
 
-## 6. Verify
+Skip this step unless you are Claude Code. Check `claude plugin list` first;
+if `netwiv@netwiv` is already installed and enabled, go on.
 
-Call `netwiv_project_info`. Report the CLI version, the project's NetWiv
-package version and whether they differ. Then call `netwiv_docs_read` without
+Otherwise offer the NetWiv skills from
+[NetWiv/skills](https://github.com/NetWiv/skills). They hold NetWiv workflows
+that do not change between releases and read version-specific details from the
+MCP server above, so one install covers every NetWiv version. Ask the user two
+things together:
+
+1. Install the skills? If they decline, go on.
+2. Where? Explain the choice:
+   - **For every project (user scope)**: available in all of the user's folders.
+     Nothing is added to the project.
+   - **For this project only (project scope)**: written to
+     `.claude/settings.json` in the project. Committing that file offers the
+     same skills to everyone who opens the project in Claude Code.
+
+   Without a project yet, only user scope applies.
+
+Then run, from the project folder for project scope:
+
+```sh
+claude plugin marketplace add NetWiv/skills --scope <user|project>
+claude plugin install netwiv@netwiv --scope <user|project>
+```
+
+Use the same scope for both commands. Report what was written where.
+
+## 7. Restart and verify
+
+Most agents load new MCP servers and plugins only at startup. If yours does,
+tell the user to restart it in the project folder and to approve the `netwiv`
+server when asked; the restart also loads the skills from step 6.
+
+Then call `netwiv_project_info`. Report the CLI version, the project's NetWiv
+package version and whether they differ. Call `netwiv_docs_read` without
 arguments to confirm the guides are available.
 
 From then on, answer NetWiv questions with `netwiv_docs_search` and
 `netwiv_docs_read` rather than from memory: they match the project's version.
 After the user changes C# commands and builds, `netwiv_commands` shows the
 generated frontend calls.
-
-## 7. Claude Code: offer the NetWiv skills
-
-If you are Claude Code, offer the NetWiv skills from
-[NetWiv/skills](https://github.com/NetWiv/skills). Plugin commands are typed by
-the user, so give them these three lines to run:
-
-```text
-/plugin marketplace add NetWiv/skills
-/plugin install netwiv@netwiv
-/reload-plugins
-```
-
-The skills hold NetWiv workflows that do not change between releases. They
-check the project's version with `netwiv_project_info` and read
-version-specific details from the MCP server above, which always comes from
-the project's own CLI. One install covers every NetWiv version.

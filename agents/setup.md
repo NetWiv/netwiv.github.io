@@ -2,7 +2,7 @@
 
 You are a coding agent helping the user set up [NetWiv](https://netwiv.github.io), a .NET desktop
 framework on the OS WebView. Follow these steps in order. The newest release is
-**NetWiv 0.2.9** (https://github.com/kim0522ms/NetWiv/releases/tag/v0.2.9).
+**NetWiv 0.3.0** (https://github.com/kim0522ms/NetWiv/releases/tag/v0.3.0).
 
 Rules:
 
@@ -59,19 +59,19 @@ Command Line Tools (`xcode-select --install`) on macOS, and `clang` with
 
 Download both files from the release into a new folder:
 
-- https://github.com/kim0522ms/NetWiv/releases/download/v0.2.9/NetWiv-0.2.9-packages.zip
-- https://github.com/kim0522ms/NetWiv/releases/download/v0.2.9/SHA256SUMS
+- https://github.com/kim0522ms/NetWiv/releases/download/v0.3.0/NetWiv-0.3.0-packages.zip
+- https://github.com/kim0522ms/NetWiv/releases/download/v0.3.0/SHA256SUMS
 
 Verify the ZIP's SHA-256 against `SHA256SUMS` and stop if it does not match.
 The ZIP has `packages/` at its root. Extract it to a lasting folder, such as
-`~/.netwiv/feeds/0.2.9` (`%USERPROFILE%\.netwiv\feeds\0.2.9` on
+`~/.netwiv/feeds/0.3.0` (`%USERPROFILE%\.netwiv\feeds\0.3.0` on
 Windows), not a temporary or Downloads folder: each new project records the
 feed's absolute path in its `NuGet.Config`, and restoring breaks if the folder
 is removed. Tell the user where it is. Then install the CLI with that
 `packages` folder as the source.
 
 ```sh
-dotnet tool install --global NetWiv.Cli --version 0.2.9 --add-source <extracted>/packages
+dotnet tool install --global NetWiv.Cli --version 0.3.0 --add-source <extracted>/packages
 ```
 
 Use `update` instead of `install` when an older CLI is present. On macOS and
